@@ -586,50 +586,14 @@
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1190.0" data-gr-ext-installed="">
-  <!-- <div id="main-wrapper" class="project-details-page">
-  <div class="header fixed-top fixed">
-  <div class="container">
-  <div class="h14-navbar">
-  <nav class="navbar h14-nav">
-  <a href="https://www.propvestors.in" class="navbar-brand">
-  <img src="https://www.propvestors.in/wp-content/themes/propvestors/assets/images/logo-light.svg" alt="Propvestors Logo" class="img-fluid">
-  </a>
-  <ul class="navbar-nav ms-auto">
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/commercial-projects/">Commercial Projects</a></li>
-  </ul>
-  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-  <span class="ti-menu"></span>
-  </button>
-  <div class="offcanvas offcanvas-end text-bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-  <div class="offcanvas-header">
-  <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Main Menu</h5>
-  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-  <ul class="navbar-nav justify-content-end flex-grow-1">
-  <li class="nav-item hidden-md-up"><a class="nav-link" href="https://www.propvestors.in">Home</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/sell/">Sell</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/partners/">Partners</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/services/">Services</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/careers/">Careers</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/news/">News</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/about/">About</a></li>
-  <li class="nav-item "><a class="nav-link" href="https://www.propvestors.in/contact/">Contact</a></li>
-  </ul>
-  </div>
-  </div>
-  </nav>
-  </div>
-  </div>
-  </div> -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
     :root {
       --font-family: 'Roboto', sans-serif;
       --font-size-base: 0.925rem;
-      --base-color: #66f;
-      --text-dark: #3c4250;
+      --base-color: #2a6e4e;
+      --text-dark: #000000;
       --border-color: #eceef3;
 
       --navbar-body-color: #fff;
@@ -668,7 +632,6 @@
     a {
       text-decoration: none;
     }
-
     .container {
       /* width: 1170px; */
       position: relative;
@@ -699,7 +662,8 @@
 
     .navbar {
       box-shadow: var(--navbar-shadow);
-      background-color: #000000 padding: var(--navbar-padding-y) var(--navbar-padding-x);
+      background-color: #ffffff;
+      padding: var(--navbar-padding-y) var(--navbar-padding-x);
       border-bottom: 1px solid var(--border-color);
     }
 
@@ -1041,7 +1005,7 @@
     .search-container button {
       padding: 10px;
       border: none;
-      background-color: #28a745;
+      background-color: #2a6e4e;
       color: white;
       font-size: 16px;
       cursor: pointer;
@@ -1050,14 +1014,23 @@
   </style>
   <div class="logo-slider">
     <div class="logos-slide">
-      <div class="slide"><img src="https://static.ieplads.com/bmsjs/banners/99acres-hp/1366/1366-adani-2.jpg"
-          alt="Image 1"></div>
-      <div class="slide"><img src="https://static.ieplads.com/bmsjs/banners/99acres-hp/1366/1366-adani-2.jpg"
-          alt="Image 2"></div>
-      <div class="slide"><img src="https://static.ieplads.com/bmsjs/banners/99acres-hp/1366/1366-adani-2.jpg"
-          alt="Image 3"></div>
-      <div class="slide"><img src="https://static.ieplads.com/bmsjs/banners/99acres-hp/1366/1366-adani-2.jpg"
-          alt="Image 4"></div>
+      <% properties.hero.forEach(property=> { %>
+      <div class="slide">
+        <img src="<%= property.imageUrl %>" alt="Image 1">
+      </div>
+      <div class="slide">
+          <img src="<%= property.imageUrl %>"
+          alt="Image 2"> 
+      </div>
+      <div class="slide">
+          <img src="<%= property.imageUrl%>"
+          alt="Image 3"> 
+      </div>
+      <div class="slide">
+          <img src="<%= property.imageUrl %>"
+          alt="Image 4"> 
+      </div>
+      <% }) %>
     </div>
     <div class="search-container">
       <input type="text" placeholder="Search by location, developer or project name">
@@ -1254,7 +1227,7 @@
 
       .line-title::after {
         width: 32px;
-        background: #e73700;
+        background: #2a6e4e;
       }
 
       /******* Middle section CSS Start ******/
@@ -1400,30 +1373,30 @@
       </div>
       <div class="featured-developers-wrapper">
         <div class="row g-2">
-          <% developers.forEach(function(property, index) { %> <!-- Corrected function syntax -->
+          <% developers.forEach(developer=> { %>            
             <div class="col-12 col-sm-4">
               <div class="developer-wrapper">
-                <a href="<%= property.link %>">
+                <a href="#">
                   <div class="row g-4 align-items-center">
                     <div class="col-auto">
                       <div class="developer-image">
-                        <img src="<%= property.logo %>" class="img-fluid" alt="<%= property.name %>" />
+                        <img src="<%= developer.logo %>" class="img-fluid" alt="<%= developer.name %>" />
                       </div>
                     </div>
                     <div class="col">
-                      <div class="developer-name"><%= property.name %></div>
+                      <div class="developer-name"><%= developer.name %></div>
                       <div class="row g-3">
                         <div class="col-6">
-                          <div class="project-specs"><span>Established</span><%= property.established %></div>
+                          <div class="project-specs"><span>Established</span><%= developer.established %></div>
                         </div>
                         <div class="col-6">
-                          <div class="project-specs"><span>Projects</span><%= property.project %></div>
+                          <div class="project-specs"><span>Projects</span><%= developer.project %></div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </a>
-                <p class="mb-5 mb-md-3 mt-3"><%= property.longDescription %></p>
+                <p class="mb-5 mb-md-3 mt-3"><%= developer.longDescription %></p>
               </div>
             </div>
           <% }) %> <!-- Closing the loop correctly -->
@@ -1431,10 +1404,8 @@
       </div>
     </div>
   </div>
-  
 
-
-  <div class="mini-spacer bg-grey">
+  <div class="mini-spacer bg-grey" >
     <div class="container">
       <div class="row m-b-20">
         <div class="col-12">
@@ -1460,7 +1431,7 @@
                   <div class="project-info">
                     <div class="project-name">
                       <div class="project-title"><%= property.name %></div>
-                      <div class="project-developer"><%= property.by %></div>
+                      <div class="project-developer">by <%= property.by %></div>
                       <div class="project-location"><i class="fa fa-map-marker"></i>
                         <%= property.location %>
                         </div>
@@ -1482,7 +1453,7 @@
       </div>
     </div>
   </div>
-  <div class="mini-spacer bg-primary-gradient">
+  <div class="box2">
     <div class="container">
       <div class="row m-b-20">
         <div class="col-12">
@@ -1501,7 +1472,7 @@
                     <!-- <div class="project-badge signature"><img src="https://www.propvestors.in/wp-content/themes/propvestors/assets/images/pv-badge.svg" alt="PV Signature"><span>Signature</span></div> -->
                     <!-- <div class="project-rera">RERA <i class="fa fa-check"></i></div> -->
                     <img
-                      src="https://www.propvestors.in/wp-content/uploads/2024/04/Forum-Township-Aranya-Action-Area-II-New-Town-Prop-Vestors-3.webp"
+                      src="<%= property.imageUrl %>"
                       class="img-fluid" alt="Forum Estates Aranya">
                   </div>
                 </div>
@@ -1513,12 +1484,12 @@
                       <div class="project-location"><i class="fa fa-map-marker"></i>
                         <%= property.location %></div>
                       <div class="project-price"><%= property.price %></div>
-                      <div class="project-size"> <%= property.size %>w</div>
-                      <!-- <div class="project-status">
+                      <div class="project-size"> <%= property.size %></div>
+                      <div class="project-status">
   New Launch <div class="progress" role="progressbar">
   <div class="progress-bar progress-bar-striped progress-bar-animated w-25"></div>
   </div>
-  </div> -->
+  </div>
                     </div>
                   </div>
                 </div>
@@ -1548,7 +1519,7 @@
                     <!-- <div class="project-badge certified"><img src="https://www.propvestors.in/wp-content/themes/propvestors/assets/images/pv-badge.svg" alt="PV Certified"> <span>Certified</span></div> -->
                     <!-- <div class="project-rera">RERA <i class="fa fa-check"></i></div> -->
                     <img
-                      src="https://www.propvestors.in/wp-content/uploads/2024/05/Merlin-Isle-EM-Bypass-Picnic-Garden-Road-Project-Imge-2-scaled.webp"
+                      src="<%= property.imageUrl %>"
                       class="img-fluid" alt="Merlin Isle">
                   </div>
                 </div>
@@ -1558,7 +1529,7 @@
                       <div class="project-title"><%= property.name %></div>
                       <div class="project-developer"><%= property.by %></div>
                       <div class="project-location"><i class="fa fa-map-marker"></i>
-                        <%= property.locaion %></div>
+                        <%= property.location %></div>
                       <div class="project-price"><%= property.price %></div>
                       <div class="project-size"><%= property.size %></div>
                       <!-- <div class="project-status">
@@ -1574,8 +1545,8 @@
             </a>
           </div>
         </div>
-  </div>
-  <% }) %> 
+        <% }) %>
+  </div> 
   </div>
   </div>
   <div class="mini-spacer bg-map">
@@ -1880,7 +1851,12 @@
     </div>
   </div>
   <!--  -->
-  <div class="mini-spacer">
+  <style>
+    #box1{
+      background-color: grey;
+    }
+  </style>
+  <div class="mini-spacer" id="box1">
     <div class="container">
       <div class="row justify-content-center m-b-20">
         <div class="col-md-7 text-center">
@@ -1889,13 +1865,7 @@
         </div>
       </div>
       <div>
-
-
-
-
-
         <section class="howwork">
-
           <div class="steps-container">
             <div class="step">
               <div class="icon">
@@ -1935,7 +1905,8 @@
             </div>
           </div>
         </section>
-
+    </div>
+  </div>
         <style>
           .howwork {
             display: flex;
@@ -2019,7 +1990,15 @@
         </style>
       </div>
     </div>
-    <div class="mini-spacer bg-primary-gradient">
+    </div>
+  </div>
+  <br><br>
+  <style>
+    .box2{
+      background: linear-gradient(180deg, #2a6e4e 0%, rgb(25, 102, 63) 100%);
+    }
+  </style>
+    <div class="box2">
       <div class="container">
         <div class="row justify-content-center m-b-20">
           <div class="col-md-7 text-center">
